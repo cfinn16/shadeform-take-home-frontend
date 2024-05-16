@@ -1,4 +1,4 @@
-export default function Pagination({page, setPage}) {
+export default function Pagination({page, setPage, totalCount, perPage}) {
     const handleNextClick = () => {
         setPage((prevPage) => prevPage + 1)
     }  
@@ -18,7 +18,7 @@ export default function Pagination({page, setPage}) {
             <p>Page {page + 1}</p>
             <button
                 className="bg-sky-500 rounded px-8 py-2 disabled:opacity-50" 
-                // disable={page === }
+                disabled={page === Math.floor(totalCount / perPage)}
                 onClick={handleNextClick}
             >
                 Next
